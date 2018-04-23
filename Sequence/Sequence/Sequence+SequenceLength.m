@@ -16,29 +16,29 @@
         return [obj1 compare:obj2];
     }];
     
-    NSUInteger length = 1;
+    NSUInteger maxLength = 1;
     
     // The temporary value of the maximum length of the sequence
-    NSUInteger maxLength = 1;
+    NSUInteger length = 1;
     
     for (int i = 0; i < (sortedArray.count - 1); i++) {
         NSInteger item = [[sortedArray objectAtIndex:i] integerValue];
         NSInteger nextItem = [[sortedArray objectAtIndex:i + 1] integerValue];
         
         if (item == nextItem - 1) {
-            maxLength++;
+            length++;
         } else if (item == nextItem) {
             continue;
         } else {
-            maxLength = 1;
+            length = 1;
         }
         
-        if (maxLength > length) {
-            length = maxLength;
+        if (length > maxLength) {
+            maxLength = length;
         }
     }
     
-    return length;
+    return maxLength;
 }
 
 @end
